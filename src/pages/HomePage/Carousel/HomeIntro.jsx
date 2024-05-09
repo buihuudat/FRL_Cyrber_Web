@@ -100,7 +100,7 @@ const HomeIntro = () => {
 
             <div className="">
               <div className="p-8 rounded bg-yellow-500 text-white">
-                <h3 className="text-2xl font-bold mb-4">LỘ TRÌNH PHÙ HỢP</h3>
+                <h3 className="text-2xl font-bold mb-4">GIẢNG VIÊN</h3>
                 <ul>
                   <li>
                     <i
@@ -108,7 +108,7 @@ const HomeIntro = () => {
                       style={{ paddingRight: "10px" }}
                     ></i>
                     <span>
-                      Lộ trình bài bản từ zero tới chuyên nghiệp, nâng cao
+                      Tương tác cùng mentor và giảng viên qua phần thảo luận
                     </span>
                   </li>
                   <li>
@@ -116,25 +116,21 @@ const HomeIntro = () => {
                       className="fas fa-check"
                       style={{ paddingRight: "10px" }}
                     ></i>
-                    <span>
-                      Học, luyện tập code, kỹ thuật phân tích, soft skill
-                    </span>
+                    <span>Review code và đưa ra các nhận xét góp ý</span>
                   </li>
                   <li>
                     <i
                       className="fas fa-check"
                       style={{ paddingRight: "10px" }}
                     ></i>
-                    <span>
-                      Huấn luyện để phát triển năng lực và niềm đam mê lập trình
-                    </span>
+                    <span>Chấm điểm tương tác thảo luận giữa các học viên</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-2">
+          <div className=" xl:col-span-1 md:col-span-2 gap-2 flex flex-col">
             <div className=" md:col-span-1">
               <div className="p-8 rounded bg-gray-700 text-white">
                 <h3 className="text-2xl font-bold mb-4">HỆ THỐNG HỌC TẬP</h3>
