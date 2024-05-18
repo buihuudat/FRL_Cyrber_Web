@@ -73,7 +73,7 @@ const CoursesCreateUpdate = () => {
     if (isCreatePage)
       setCourseData({
         ...courseData,
-        taiKhoanNguoiTao: user.taiKhoan,
+        taiKhoanNguoiTao: user?.taiKhoan,
       });
   }, [state, user]);
 
