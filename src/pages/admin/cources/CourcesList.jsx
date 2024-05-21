@@ -59,7 +59,7 @@ const CourcesList = () => {
 
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
-        <AdminCourseTable courses={dataReSearch} />
+        <AdminCourseTable courses={dataReSearch} setCourses={setCourses} />
       </div>
     </div>
   );

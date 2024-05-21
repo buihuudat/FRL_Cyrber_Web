@@ -56,8 +56,6 @@ const CoursesCreateUpdate = () => {
     taiKhoanNguoiTao: "",
   });
 
-  console.log(isCreatePage);
-
   useEffect(() => {
     if (state) {
       setCourseData({
@@ -126,6 +124,7 @@ const CoursesCreateUpdate = () => {
       {
         method: "POST",
         headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
           TokenCybersoft: TOKEN_CYBER,
         },

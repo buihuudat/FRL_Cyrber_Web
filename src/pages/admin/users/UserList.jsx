@@ -5,8 +5,11 @@ import Search from "../../../components/App/Search";
 import AdminUserTable from "../../../components/App/AdminUserTable";
 import { userService } from "../../../service/userService";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const UserList = () => {
+  const navigate = useNavigate();
+
   const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +33,7 @@ const UserList = () => {
     return users?.filter((user) => {
       return user?.hoTen?.toLowerCase()?.includes(searchQuery?.toLowerCase());
     });
-  }, [searchQuery, users]);
+  }, [searchQuery]);
 
   if (isLoading) return <LinearProgress color="warning" />;
 
@@ -44,7 +47,11 @@ const UserList = () => {
           <h1 className="text-2xl text-base-300 font-bold">
             Quản lý người dùng
           </h1>
-          <Button variant="contained" color="warning">
+          <Button
+            variant="contained"
+            color="warning"
+            onClick={() => navigate("/admin/users/create")}
+          >
             Thêm người dùng
           </Button>
         </div>

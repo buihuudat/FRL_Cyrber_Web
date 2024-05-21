@@ -1,10 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   const user = useSelector((state) => state.userReducer.infoUser);
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/auth/login");
+    localStorage.removeItem("token");
+  };
+
   return (
     <section className="header bg-white py-3 z-20 sticky top-0 shadow-lg backdrop-blur-lg">
       <div className="container mx-auto justify-center xl:justify-between items-center flex gap-2">
@@ -68,7 +76,7 @@ const Header = () => {
             </NavLink>
             <NavLink
               className="font-semibold text-yellow-400 text-lg no-underline"
-              to="/auth/login"
+              onClick={handleLogout}
             >
               Log Out
             </NavLink>

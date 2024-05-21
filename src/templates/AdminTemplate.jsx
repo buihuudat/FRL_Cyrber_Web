@@ -1,9 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import AdminSidebar from "../components/Sidebar/AdminSidebar";
 import { Avatar, Button } from "@mui/material";
 
 const AdminTemplate = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/auth/login");
+    localStorage.removeItem("token");
+  };
   return (
     <div className="grid grid-cols-12 h-screen">
       <div className="col-span-1 bg-gray-800">
@@ -11,7 +16,12 @@ const AdminTemplate = () => {
       </div>
       <div className="col-span-11 bg-neutral-300">
         <div className="flex flex-row items-center justify-end pr-3 gap-5 bg-neutral-50">
-          <Button variant="contained" color="warning" size="small">
+          <Button
+            variant="contained"
+            color="warning"
+            size="small"
+            onClick={handleLogout}
+          >
             Đăng xuất
           </Button>
           <Avatar

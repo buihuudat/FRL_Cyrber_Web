@@ -72,16 +72,23 @@ const UserCreateUpdate = () => {
 
     try {
       if (isCreatePage) {
-        await userService.createUser(userData);
-        toast.success("Tạo người dùng thành công");
+        await toast.promise(userService.createUser(userData), {
+          loading: "Đang tạo...",
+          success: "Tạo thành công",
+          error: (e) => e?.response?.data,
+        });
       } else {
-        await userService.editUser(userData);
+        await toast.promise(userService.editUser(userData), {
+          loading: "Đang lưu...",
+          success: "Lưu thành công",
+          error: (e) => e?.response?.data,
+        });
         toast.success("Cập nhật người dùng thành công");
       }
       navigate("/admin/users/list");
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Tạo người dùng thất bại");
+      // toast.error("Tạo người dùng thất bại");
     }
   };
 

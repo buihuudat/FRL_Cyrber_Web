@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { courseService } from "../../service/courseService";
 
-export default function AdminCourseTable({ courses }) {
+export default function AdminCourseTable({ courses, setCourses }) {
   const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
@@ -17,6 +17,7 @@ export default function AdminCourseTable({ courses }) {
         success: "Xóa thành công",
         error: (e) => e?.response?.data,
       });
+      setCourses(courses.filter((c) => c.maKhoaHoc !== id));
     } catch (error) {
       // toast.error("Xóa thất bại");
     }
